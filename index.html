@@ -40,6 +40,7 @@
         position: absolute;
         left: 0;
         bottom: 0;
+        z-index: 3;
       }
       #featured-categories > div > .content h3 {
         font-size: 19px;
@@ -48,58 +49,157 @@
       #featured-categories > div > .content p {
         font-size: 12px;
       }
+      #featured-categories .lazy {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: 2;
+      }
+      #featured-categories .lazyloaded {
+        opacity: 1;
+        transition: opacity 1s ease;
+      }
+
+      .preloader{width:110px;height:40px;position:absolute;z-index:1;margin:0 auto;left:0;right:0;top:50%;margin-top:-20px}
+      .preloader-animation{animation:preloader 750ms infinite alternate}
+      @keyframes preloader{from{transition:opacity 750ms ease;opacity:0;transform: scale(0.9)}to{opacity:1;transform: scale(0.85)}}
+
     </style>
 
     <section id="featured-categories">
       <div>
+        <picture>
+          <source data-srcset="item-1/image@1x.webp" type="image/webp" />
+          <source data-srcset="item-1/image@1x.jpg" />
+          <img
+            data-srcset="item-1/image@1x.jpg"
+            alt="image"
+            class="lazy lazyload"
+          />
+        </picture>
+        <img src="placeholder.svg" class="preloader preloader-animation" alt="">
         <div class="content">
           <h3>Alargadores y Extensiones</h3>
           <p>Energía eléctrica en el lugar que quieras</p>
         </div>
       </div>
       <div>
+        <picture>
+          <source data-srcset="item-2/image@1x.webp" type="image/webp" />
+          <source data-srcset="item-2/image@1x.jpg" />
+          <img
+            data-srcset="item-2/image@1x.jpg"
+            alt="image"
+            class="lazy lazyload"
+          />
+        </picture>
+        <img src="placeholder.svg" class="preloader preloader-animation" alt="">
         <div class="content">
           <h3>Computadores</h3>
           <p>Tecnología y potencia para estar más conectado</p>
         </div>
       </div>
       <div>
+        <picture>
+          <source data-srcset="item-3/image@1x.webp" type="image/webp" />
+          <source data-srcset="item-3/image@1x.jpg" />
+          <img
+            data-srcset="item-3/image@1x.jpg"
+            alt="image"
+            class="lazy lazyload"
+          />
+        </picture>
+        <img src="placeholder.svg" class="preloader preloader-animation" alt="">
         <div class="content">
           <h3>Espejos</h3>
           <p>Decora y deja tus espacios más amplios</p>
         </div>
       </div>
       <div>
+        <picture>
+          <source data-srcset="item-4/image@1x.webp" type="image/webp" />
+          <source data-srcset="item-4/image@1x.jpg" />
+          <img
+            data-srcset="item-4/image@1x.jpg"
+            alt="image"
+            class="lazy lazyload"
+          />
+        </picture>
+        <img src="placeholder.svg" class="preloader preloader-animation" alt="">
         <div class="content">
           <h3>Bauker Jardín</h3>
           <p>¡La mejor maquinaria para jardinear!</p>
         </div>
       </div>
       <div>
+        <picture>
+          <source data-srcset="item-5/image@1x.webp" type="image/webp" />
+          <source data-srcset="item-5/image@1x.jpg" />
+          <img
+            data-srcset="item-5/image@1x.jpg"
+            alt="image"
+            class="lazy lazyload"
+          />
+        </picture>
+        <img src="placeholder.svg" class="preloader preloader-animation" alt="">
         <div class="content">
           <h3>Favoritos Electrohogar</h3>
           <p>Tu casa siempre bien equipada</p>
         </div>
       </div>
       <div>
+        <picture>
+          <source data-srcset="item-6/image@1x.webp" type="image/webp" />
+          <source data-srcset="item-6/image@1x.jpg" />
+          <img
+            data-srcset="item-6/image@1x.jpg"
+            alt="image"
+            class="lazy lazyload"
+          />
+        </picture>
+        <img src="placeholder.svg" class="preloader preloader-animation" alt="">
         <div class="content">
           <h3>Muebles de Cocina</h3>
           <p>Los mejores kits para dejar tu cocina increíble</p>
         </div>
       </div>
       <div>
+        <picture>
+          <source data-srcset="item-7/image@1x.webp" type="image/webp" />
+          <source data-srcset="item-7/image@1x.jpg" />
+          <img
+            data-srcset="item-7/image@1x.jpg"
+            alt="image"
+            class="lazy lazyload"
+          />
+        </picture>
+        <img src="placeholder.svg" class="preloader preloader-animation" alt="">
         <div class="content">
           <h3>Toldos</h3>
           <p>Ideal para sus proyectos al aire libre</p>
         </div>
       </div>
       <div>
+        <picture>
+          <source data-srcset="item-8/image@1x.webp" type="image/webp" />
+          <source data-srcset="item-8/image@1x.jpg" />
+          <img
+            data-srcset="item-8/image@1x.jpg"
+            alt="image"
+            class="lazy lazyload"
+          />
+        </picture>
+        <img src="placeholder.svg" class="preloader preloader-animation" alt="">
         <div class="content">
           <h3>Radios para Autos</h3>
           <p>Tu playlist es tu mejor copiloto</p>
         </div>
       </div>
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.1/lazysizes.min.js" integrity="sha256-6zKmNZVeImc0d1Y55vm4So/0W5mbwWiPS4zJt3F4t2A=" crossorigin="anonymous"></script>
 
   </body>
 </html>
