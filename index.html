@@ -23,17 +23,17 @@
         margin: 50px auto;
         padding: 0 10px;
       }
-      #featured-categories > div {
+      #featured-categories > li {
         position: relative;
         overflow: hidden;
       }
-      #featured-categories > div::before {
+      #featured-categories > li::before {
         content: "";
         display: block;
         padding-bottom: 100%;
         background-color: #ffffff;
       }
-      #featured-categories > div .content {
+      #featured-categories > li .content {
         width: calc(100% - 10px);
         padding: 15px;
         position: absolute;
@@ -47,11 +47,11 @@
         border-radius: 0px;
         opacity: 0;
       }
-      #featured-categories > div .content h3 {
+      #featured-categories > li .content h3 {
         margin-bottom: 5px;
         letter-spacing: -0.5px;
       }
-      #featured-categories > div .content p {
+      #featured-categories > li .content p {
         font-size: 12px;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -80,7 +80,7 @@
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(4, 1fr);
         }
-        #featured-categories > div .content h3 {
+        #featured-categories > li .content h3 {
           font-size: 15px;
         }
       }
@@ -91,7 +91,7 @@
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(4, 1fr);
         }
-        #featured-categories > div .content h3 {
+        #featured-categories > li .content h3 {
           font-size: 18px;
         }
       }
@@ -102,13 +102,13 @@
           grid-template-columns: repeat(4, 1fr);
           grid-template-rows: repeat(2, 1fr);
         }
-        #featured-categories > div .content h3 {
+        #featured-categories > li .content h3 {
           font-size: 20px;
         }
-        #featured-categories > div .lazy {
+        #featured-categories > li > a .lazy {
           transition: transform 500ms ease, opacity 500ms ease;
         }
-        #featured-categories > div:hover .lazy {
+        #featured-categories > li > a:hover .lazy {
           transform: scale(1.035);
           opacity: 0.9;
         }
@@ -116,8 +116,8 @@
 
     </style>
 
-    <section id="featured-categories">
-      <div>
+    <ul id="featured-categories">
+      <li>
         <a href="#" title="item-1">
           <picture>
             <source data-srcset="item-1/image@1x.webp" type="image/webp" />
@@ -134,8 +134,8 @@
             <p>Energía eléctrica en el lugar que quieras</p>
           </div>
         </a>
-      </div>
-      <div>
+      </li>
+      <li>
         <a href="#" title="item-2">
           <picture>
             <source data-srcset="item-2/image@1x.webp" type="image/webp" />
@@ -152,8 +152,8 @@
             <p>Tecnología y potencia para estar más conectado</p>
           </div>
         </a>
-      </div>
-      <div>
+      </li>
+      <li>
         <a href="#" title="item-3">
           <picture>
             <source data-srcset="item-3/image@1x.webp" type="image/webp" />
@@ -170,8 +170,8 @@
             <p>Decora y deja tus espacios más amplios</p>
           </div>
         </a>
-      </div>
-      <div>
+      </li>
+      <li>
         <a href="#" title="item-4">
           <picture>
             <source data-srcset="item-4/image@1x.webp" type="image/webp" />
@@ -188,8 +188,8 @@
             <p>¡La mejor maquinaria para jardinear!</p>
           </div>
         </a>
-      </div>
-      <div>
+      </li>
+      <li>
         <a href="#" title="item-5">
           <picture>
             <source data-srcset="item-5/image@1x.webp" type="image/webp" />
@@ -206,8 +206,8 @@
             <p>Tu casa siempre bien equipada</p>
           </div>
         </a>
-      </div>
-      <div>
+      </li>
+      <li>
         <a href="#" title="item-6">
           <picture>
             <source data-srcset="item-6/image@1x.webp" type="image/webp" />
@@ -224,8 +224,8 @@
             <p>Los mejores kits para dejar tu cocina increíble</p>
           </div>
         </a>
-      </div>
-      <div>
+      </li>
+      <li>
         <a href="#" title="item-7">
           <picture>
             <source data-srcset="item-7/image@1x.webp" type="image/webp" />
@@ -242,8 +242,8 @@
             <p>Ideal para sus proyectos al aire libre</p>
           </div>
         </a>
-      </div>
-      <div>
+      </li>
+      <li>
         <a href="#" title="item-8">
           <picture>
             <source data-srcset="item-8/image@1x.webp" type="image/webp" />
@@ -260,16 +260,16 @@
             <p>Tu playlist es tu mejor copiloto</p>
           </div>
         </a>
-      </div>
-    </section>
+      </li>
+    </ul>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.1/lazysizes.min.js" integrity="sha256-6zKmNZVeImc0d1Y55vm4So/0W5mbwWiPS4zJt3F4t2A=" crossorigin="anonymous"></script>
 
     <script>
       $(document).ready(function(){
-        $(".lazy").one("load", function() {
-          var parent = $(this).closest("div");
+        $("#featured-categories .lazy").one("load", function() {
+          var parent = $(this).closest("li");
           parent.find(".content").css({ opacity: 1, transition: "opacity 350ms ease" });
           parent.find(".preloader").removeClass("preloader-animation");
         }).each(function(image) {
