@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Categories - Grid</title>
   </head>
   <body>
     <style>
-      /* * {
+      * {
         margin: 0;
         padding: 0;
         font-family: sans-serif;
@@ -15,21 +15,29 @@
       }
       body {
         background-color: #f5f5f5;
-      } */
-      #featured-categories {
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      .__container {
+        margin: 50px auto;
+        padding: 0 10px;
+      }
+      .__categories {
         display: grid;
       }
-      #featured-categories > li {
+      .__categories > li {
         position: relative;
         overflow: hidden;
       }
-      #featured-categories > li::before {
+      .__categories > li::before {
         content: "";
         display: block;
         padding-bottom: 100%;
         background-color: #ffffff;
       }
-      #featured-categories > li .content {
+      .__categories > li .__content {
         width: calc(100% - 10px);
         padding: 15px;
         position: absolute;
@@ -43,40 +51,42 @@
         border-radius: 0px;
         opacity: 0;
       }
-      #featured-categories > li .content h3 {
-        margin: 0;
-        letter-spacing: -0.5px;
-      }
-      #featured-categories > li .content p {
-        font-size: 12px;
+      .__categories > li .__content h3,
+      .__categories > li .__content p {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
       }
-      #featured-categories .lazy {
+      .__categories > li .__content h3 {
+        margin: 0;
+        letter-spacing: -0.5px;
+      }
+      .__categories > li .__content p {
+        font-size: 12px;
+      }
+      .__categories .lazy {
         height: 100%;
         position: absolute;
-        top: 0;
+        top: -100%;
         left: 0;
         opacity: 0;
         z-index: 2;
       }
-      #featured-categories .lazyloaded {
+      .__categories .lazyloaded {
         opacity: 1;
         transition: opacity 1s ease;
       }
 
-      .sodimac-content .title {
+      .__container .__title {
         font-family: 'Lato', sans-serif;
         font-weight: 700;
         color: #444;
         width: 100%;
         margin: 0;
         margin-bottom: 20px;
-        margin-top: 50px;
         font-size: 34px;
       }
-      .sodimac-content .title::after {
+      .__container .__title::after {
         content: "";
         width: 100%;
         height: 2px;
@@ -85,66 +95,68 @@
         background-image: linear-gradient(to right, rgba(221,0,33,1) 0%, rgba(0,113,206,1) 100%);
       }
 
-      #featured-categories .preloader{width:110px;height:40px;position:absolute;z-index:1;margin:0 auto;left:0;right:0;top:50%;margin-top:-20px}
-      #featured-categories .preloader-animation{animation:preloader 750ms infinite alternate}
+      .__categories .__preloader{width:110px;height:40px;position:absolute;z-index:1;margin:0 auto;left:0;right:0;top:50%;margin-top:-20px}
+      .__categories .__preloader-animation{animation:preloader 750ms infinite alternate}
       @keyframes preloader{from{transition:opacity 750ms ease;opacity:0;transform: scale(0.9)}to{opacity:1;transform: scale(0.85)}}
 
       @media (max-width: 639px) {
-        .sodimac-content {
+        .__container {
           max-width: 480px;
-          width: calc(100% + 20px);
-          transform: translateX(-10px);
         }
-        #featured-categories {
+        .__categories {
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(4, 1fr);
           grid-gap: 8px;
         }
-        #featured-categories > li .content {
+        .__categories > li .__content {
           padding: 12px;
         }
-        #featured-categories > li .content h3 {
+        .__categories > li .__content h3 {
           font-size: 14px;
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
         }
-        #featured-categories > li .content p {
+        .__categories > li .__content p {
           display: none;
         }
-        .sodimac-content .title {
+        .__container .__title {
           font-size: 24px;
         }
       }
 
       @media (min-width: 640px) and (max-width: 1023px) {
-        #featured-categories {
-          max-width: 600px;
+        .__container {
+          max-width: 640px;
+        }
+        .__categories {
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(4, 1fr);
           grid-gap: 14px;
         }
-        #featured-categories > li .content h3 {
+        .__categories > li .__content h3 {
           font-size: 18px;
           margin-bottom: 5px;
         }
       }
 
       @media (min-width: 1024px) {
-        #featured-categories {
+        .__container {
           max-width: 1280px;
+        }
+        .__categories {
           grid-template-columns: repeat(4, 1fr);
           grid-template-rows: repeat(2, 1fr);
           grid-gap: 14px;
         }
-        #featured-categories > li .content h3 {
+        .__categories > li .__content h3 {
           font-size: 20px;
           margin-bottom: 5px;
         }
-        #featured-categories > li > a .lazy {
+        .__categories > li > a .lazy {
           transition: transform 500ms ease, opacity 500ms ease;
         }
-        #featured-categories > li > a:hover .lazy {
+        .__categories > li > a:hover .lazy {
           transform: scale(1.035);
           opacity: 0.9;
         }
@@ -152,148 +164,149 @@
 
     </style>
 
-    <section class="sodimac-content">
-      <h2 class="title">Categorías Recomendadas</h2>
-      <ul id="featured-categories">
+    <section class="__container">
+
+      <h2 class="__title">Categorías Recomendadas</h2>
+      <ul class="__categories">
         <li>
-          <a href="#" title="item-1">
+          <a href="#">
             <picture>
-              <source data-srcset="/static/home2018/mejoras/categories/item-1/image@1x.webp" type="image/webp" />
-              <source data-srcset="/static/home2018/mejoras/categories/item-1/image@1x.jpg" />
+              <source data-srcset="/item-1/image@1x.webp" type="image/webp" />
+              <source data-srcset="/item-1/image@1x.jpg" />
               <img
-                data-srcset="/static/home2018/mejoras/categories/item-1/image@1x.jpg"
+                data-srcset="/item-1/image@1x.jpg"
                 alt="image"
                 class="lazy lazyload"
               />
             </picture>
-            <img src="/static/home2018/mejoras/categories/placeholder.svg" class="preloader preloader-animation" alt="">
-            <div class="content">
+            <img src="/placeholder.svg" class="__preloader __preloader-animation" alt="">
+            <div class="__content">
               <h3>Alargadores y Extensiones</h3>
               <p>Energía eléctrica en el lugar que quieras</p>
             </div>
           </a>
         </li>
         <li>
-          <a href="#" title="item-2">
+          <a href="#">
             <picture>
-              <source data-srcset="/static/home2018/mejoras/categories/item-2/image@1x.webp" type="image/webp" />
-              <source data-srcset="/static/home2018/mejoras/categories/item-2/image@1x.jpg" />
+              <source data-srcset="/item-2/image@1x.webp" type="image/webp" />
+              <source data-srcset="/item-2/image@1x.jpg" />
               <img
-                data-srcset="/static/home2018/mejoras/categories/item-2/image@1x.jpg"
+                data-srcset="/item-2/image@1x.jpg"
                 alt="image"
                 class="lazy lazyload"
               />
             </picture>
-            <img src="/static/home2018/mejoras/categories/placeholder.svg" class="preloader preloader-animation" alt="">
-            <div class="content">
+            <img src="/placeholder.svg" class="__preloader __preloader-animation" alt="">
+            <div class="__content">
               <h3>Computadores</h3>
               <p>Tecnología y potencia para estar más conectado</p>
             </div>
           </a>
         </li>
         <li>
-          <a href="#" title="item-3">
+          <a href="#">
             <picture>
-              <source data-srcset="/static/home2018/mejoras/categories/item-3/image@1x.webp" type="image/webp" />
-              <source data-srcset="/static/home2018/mejoras/categories/item-3/image@1x.jpg" />
+              <source data-srcset="/item-3/image@1x.webp" type="image/webp" />
+              <source data-srcset="/item-3/image@1x.jpg" />
               <img
-                data-srcset="/static/home2018/mejoras/categories/item-3/image@1x.jpg"
+                data-srcset="/item-3/image@1x.jpg"
                 alt="image"
                 class="lazy lazyload"
               />
             </picture>
-            <img src="/static/home2018/mejoras/categories/placeholder.svg" class="preloader preloader-animation" alt="">
-            <div class="content">
+            <img src="/placeholder.svg" class="__preloader __preloader-animation" alt="">
+            <div class="__content">
               <h3>Espejos</h3>
               <p>Decora y deja tus espacios más amplios</p>
             </div>
           </a>
         </li>
         <li>
-          <a href="#" title="item-4">
+          <a href="#">
             <picture>
-              <source data-srcset="/static/home2018/mejoras/categories/item-4/image@1x.webp" type="image/webp" />
-              <source data-srcset="/static/home2018/mejoras/categories/item-4/image@1x.jpg" />
+              <source data-srcset="/item-4/image@1x.webp" type="image/webp" />
+              <source data-srcset="/item-4/image@1x.jpg" />
               <img
-                data-srcset="/static/home2018/mejoras/categories/item-4/image@1x.jpg"
+                data-srcset="/item-4/image@1x.jpg"
                 alt="image"
                 class="lazy lazyload"
               />
             </picture>
-            <img src="/static/home2018/mejoras/categories/placeholder.svg" class="preloader preloader-animation" alt="">
-            <div class="content">
+            <img src="/placeholder.svg" class="__preloader __preloader-animation" alt="">
+            <div class="__content">
               <h3>Bauker Jardín</h3>
               <p>¡La mejor maquinaria para jardinear!</p>
             </div>
           </a>
         </li>
         <li>
-          <a href="#" title="item-5">
+          <a href="#">
             <picture>
-              <source data-srcset="/static/home2018/mejoras/categories/item-5/image@1x.webp" type="image/webp" />
-              <source data-srcset="/static/home2018/mejoras/categories/item-5/image@1x.jpg" />
+              <source data-srcset="/item-5/image@1x.webp" type="image/webp" />
+              <source data-srcset="/item-5/image@1x.jpg" />
               <img
-                data-srcset="/static/home2018/mejoras/categories/item-5/image@1x.jpg"
+                data-srcset="/item-5/image@1x.jpg"
                 alt="image"
                 class="lazy lazyload"
               />
             </picture>
-            <img src="/static/home2018/mejoras/categories/placeholder.svg" class="preloader preloader-animation" alt="">
-            <div class="content">
+            <img src="/placeholder.svg" class="__preloader __preloader-animation" alt="">
+            <div class="__content">
               <h3>Favoritos Electrohogar</h3>
               <p>Tu casa siempre bien equipada</p>
             </div>
           </a>
         </li>
         <li>
-          <a href="#" title="item-6">
+          <a href="#">
             <picture>
-              <source data-srcset="/static/home2018/mejoras/categories/item-6/image@1x.webp" type="image/webp" />
-              <source data-srcset="/static/home2018/mejoras/categories/item-6/image@1x.jpg" />
+              <source data-srcset="/item-6/image@1x.webp" type="image/webp" />
+              <source data-srcset="/item-6/image@1x.jpg" />
               <img
-                data-srcset="/static/home2018/mejoras/categories/item-6/image@1x.jpg"
+                data-srcset="/item-6/image@1x.jpg"
                 alt="image"
                 class="lazy lazyload"
               />
             </picture>
-            <img src="/static/home2018/mejoras/categories/placeholder.svg" class="preloader preloader-animation" alt="">
-            <div class="content">
+            <img src="/placeholder.svg" class="__preloader __preloader-animation" alt="">
+            <div class="__content">
               <h3>Muebles de Cocina</h3>
               <p>Los mejores kits para dejar tu cocina increíble</p>
             </div>
           </a>
         </li>
         <li>
-          <a href="#" title="item-7">
+          <a href="#">
             <picture>
-              <source data-srcset="/static/home2018/mejoras/categories/item-7/image@1x.webp" type="image/webp" />
-              <source data-srcset="/static/home2018/mejoras/categories/item-7/image@1x.jpg" />
+              <source data-srcset="/item-7/image@1x.webp" type="image/webp" />
+              <source data-srcset="/item-7/image@1x.jpg" />
               <img
-                data-srcset="/static/home2018/mejoras/categories/item-7/image@1x.jpg"
+                data-srcset="/item-7/image@1x.jpg"
                 alt="image"
                 class="lazy lazyload"
               />
             </picture>
-            <img src="/static/home2018/mejoras/categories/placeholder.svg" class="preloader preloader-animation" alt="">
-            <div class="content">
+            <img src="/placeholder.svg" class="__preloader __preloader-animation" alt="">
+            <div class="__content">
               <h3>Toldos</h3>
               <p>Ideal para sus proyectos al aire libre</p>
             </div>
           </a>
         </li>
         <li>
-          <a href="#" title="item-8">
+          <a href="#">
             <picture>
-              <source data-srcset="/static/home2018/mejoras/categories/item-8/image@1x.webp" type="image/webp" />
-              <source data-srcset="/static/home2018/mejoras/categories/item-8/image@1x.jpg" />
+              <source data-srcset="/item-8/image@1x.webp" type="image/webp" />
+              <source data-srcset="/item-8/image@1x.jpg" />
               <img
-                data-srcset="/static/home2018/mejoras/categories/item-8/image@1x.jpg"
+                data-srcset="/item-8/image@1x.jpg"
                 alt="image"
                 class="lazy lazyload"
               />
             </picture>
-            <img src="/static/home2018/mejoras/categories/placeholder.svg" class="preloader preloader-animation" alt="">
-            <div class="content">
+            <img src="/placeholder.svg" class="__preloader __preloader-animation" alt="">
+            <div class="__content">
               <h3>Radios para Autos</h3>
               <p>Tu playlist es tu mejor copiloto</p>
             </div>
@@ -302,14 +315,17 @@
       </ul>
     </section>
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.1/lazysizes.min.js" integrity="sha256-6zKmNZVeImc0d1Y55vm4So/0W5mbwWiPS4zJt3F4t2A=" crossorigin="anonymous"></script>
     <script>
       $(document).ready(function(){
-        $("#featured-categories .lazy").one("load", function() {
+        $(".__categories .lazy").css({ top: 0 });
+        $(".__categories .lazy").one("load", function() {
           var parent = $(this).closest("li");
-          parent.find(".content").css({ opacity: 1, transition: "opacity 350ms ease" });
-          parent.find(".preloader").removeClass("preloader-animation");
+          parent.find(".__content").css({ opacity: 1, transition: "opacity 250ms ease" });
+          setTimeout( function() {
+            parent.find(".__preloader").removeClass("__preloader-animation")
+          }, 250);
         }).each(function(image) {
           if(this.complete) {
             $(this).trigger("load");
